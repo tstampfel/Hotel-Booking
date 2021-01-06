@@ -1,0 +1,89 @@
+@import "./collors.scss";
+
+.navbar-upper {
+  background-color: $secondaryColor;
+  padding-top: 0.8vh;
+  padding-bottom: 0.8vh;
+  text-align: start;
+  padding-left: 9vw;
+}
+
+.navbar-lower {
+  background-color: $backgroundColor;
+  a {
+    text-decoration: none;
+  }
+  strong {
+    color: $mainTextColor;
+  }
+  .navbar-link {
+    padding-left: 2vw;
+  }
+}
+
+.navbar-lower {
+  background-color: $navbarColor;
+}
+
+.navbar-register {
+  padding-top: 3.1vh;
+  button {
+    color: #3ac4fa;
+    background: transparent;
+    border: solid 2px #3ac4fa;
+    border-radius: 25px;
+    padding: 5px 10px 5px 10px;
+    font-size: small;
+  }
+}
+
+.navbar-need-support-phone {
+  padding-top: 2vh;
+  color: $primaryColor;
+  font-size: small;
+  a {
+    text-decoration: none;
+    color: $primaryColor;
+  }
+  #navbar-phone-holder {
+    margin-left: 0.5vh;
+  }
+  #navbar-need-support-holder {
+    margin-left: 0.5vh;
+  }
+}
+
+.navbar-need-support-mail {
+  margin-left: 2vh;
+  padding-top: 2vh;
+  color: $primaryColor;
+  font-size: small;
+  a {
+    text-decoration: none;
+    color: $primaryColor;
+  }
+  #navbar-email-holder {
+    margin-left: 1vh;
+  }
+}
+
+.navbar-social-login {
+  text-align: end;
+  padding-top: 0.5vh;
+  color: $primaryColor;
+  font-size: small;
+  .navbar-social-icons {
+    margin-left: 0.7vw;
+  }
+  .navbar-login {
+    margin-left: 6vh;
+    text-align: start;
+  }
+  #navbar-login-text {
+    margin-left: 1vh;
+  }
+  a {
+    text-decoration: none;
+    color: $primaryColor;
+  }
+}

@@ -1,0 +1,32 @@
+{
+	"banner": {
+		"bookNow": "BOKA NU",
+		"learnMore": "LEARN MORE",
+		"messageOne": {
+			"description": "Lorem ipsum dolor sit amet, conconsectetuer adipiscing elit Lorem ipsum dolor sit amet, conconsectetuer",
+			"titleOne": "VÄLKOMMEN TILL",
+			"titleTwo": " HOTEL ALPHA"
+		},
+		"messageThree": {
+			"description": "Lorem ipsum dolor sit amet, conconsectetuer adipiscing elit Lorem ipsum dolor sit amet, conconsectetuer",
+			"titleOne": "BÄSTA PLATS",
+			"titleTwo": " ATT HITTA RUM"
+		},
+		"messageTwo": {
+			"description": "Lorem ipsum dolor sit amet, conconsectetuer adipiscing elit Lorem ipsum dolor sit amet, conconsectetuer",
+			"titleOne": "BÄSTA PLATS",
+			"titleTwo": " ATT SLAPPNA AV"
+		}
+	},
+	"search": {
+		"Adult": "Vuxen",
+		"Children": "Barn",
+		"Room": "Rum",
+		"banner": {
+			"lower": " DIN ",
+			"lowerSecond": " RUM",
+			"upper": "SÖK "
+		},
+		"checkIn/Out": "Checka in / ut"
+	}
+}

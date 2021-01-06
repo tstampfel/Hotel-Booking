@@ -1,0 +1,15 @@
+{
+  "type": "postgres",
+  "url": "postgres://ucmyqnyxfrchme:58962767486b43c9b61ff92bd96d146fda7724f88a906f8e28e875301c037954@ec2-34-251-118-151.eu-west-1.compute.amazonaws.com:5432/d34a5qnnf5o7jf",
+  "synchronize": false,
+  "logging": false,
+  "ssl": { "rejectUnauthorized": false },
+  "entities": ["src/entity/**/*.ts"],
+  "migrations": ["src/migration/**/*.ts"],
+  "subscribers": ["src/subscriber/**/*.ts"],
+  "cli": {
+    "entitiesDir": "src/entity",
+    "migrationsDir": "src/migration",
+    "subscribersDir": "src/subscriber"
+  }
+}
