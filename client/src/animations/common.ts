@@ -19,4 +19,12 @@ export default class CommonAnimation {
       },
     };
   }
+
+  public static commonOnHover(hoverColor: string) {
+    return {
+      hover: {
+        color: hoverColor,
+      },
+    };
+  }
 }

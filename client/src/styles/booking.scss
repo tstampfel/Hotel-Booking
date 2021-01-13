@@ -1,0 +1,145 @@
+.booking-banner {
+  color: #ffffff;
+  position: absolute;
+  width: 100vw;
+  object-fit: cover;
+  height: 40vh;
+  float: left;
+  z-index: 300000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-family: Roboto, sans-serif;
+  font-size: xx-large;
+  .booking-banner-breadcrumbs {
+    font-size: large;
+    font-weight: 300;
+  }
+  #booking-banner-home {
+    padding-right: 1vw;
+    cursor: pointer;
+  }
+  #booking-banner-booking {
+    padding-left: 0.6vw;
+  }
+}
+#booking-banner-image {
+  width: 100vw;
+  object-fit: cover;
+  height: 40vh;
+  float: left;
+  background-image: none;
+  filter: brightness(0.5);
+}
+.booking-menu {
+  .connecting-line {
+    top: 30%;
+    height: 2px;
+    background: #e0e0e0;
+    position: absolute;
+    width: 74%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  .booking-stages-container {
+    height: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .booking-menu-row {
+    height: 35vh;
+  }
+}
+.booking-stage {
+  cursor: pointer;
+  color: #3ac4fa;
+  background-color: #fbfbfb;
+  margin-right: 0.4rem;
+  height: 4rem;
+  width: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px;
+  border-style: solid;
+  border-radius: 32px;
+
+  .booking-stage-icon {
+    width: 47%;
+    height: 70%;
+  }
+}
+
+.booking-stage-active {
+  cursor: pointer;
+  color: #fbfbfb;
+  background-color: #3ac4fa;
+  border-color: #3ac4fa;
+  margin-right: 0.4rem;
+  height: 4rem;
+  width: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px;
+  border-style: solid;
+  border-radius: 32px;
+
+  .booking-stage-icon {
+    width: 47%;
+    height: 70%;
+  }
+}
+.booking-stage-wrapper {
+  position: absolute;
+  padding-top: 4%;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.booking-stage-individual-wrapper {
+  width: 20%;
+  @media (min-width: 767px) {
+    width: 10%;
+  }
+
+  .booking-stage-text {
+    margin-top: 10%;
+    font-weight: 400;
+    font-family: Roboto, sans-serif;
+    font-size: large;
+  }
+  .booking-stag-carret {
+    margin-top: 10%;
+    margin-right: 10%;
+    color: #3ac4fa;
+  }
+  .booking-stage-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.booking-available-rooms {
+  .booking-image-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.booking-room-selection-title-col {
+  .booking-room-selection-title {
+    color: #515151;
+    font-weight: 600;
+    font-family: Roboto, sans-serif;
+    font-size: x-large;
+    text-align: left;
+    margin-bottom: 1.2em;
+  }
+}

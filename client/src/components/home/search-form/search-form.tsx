@@ -9,12 +9,14 @@ import { SET_ROOMS } from "../../../store/rooms/roomsActionTypes";
 import { useDispatch } from "react-redux";
 import { Query } from "../../../graphql/utils/graphql-utils";
 import { useApolloClient } from "@apollo/client";
+import { useHistory } from "react-router-dom";
 
 type Props = {};
 export function SearchForm(props: Props) {
   const currentDay = new Date();
   const { t } = useTranslation();
   const client = useApolloClient();
+  const history = useHistory();
 
   const [dates, setDates] = useState([currentDay, addDays(currentDay, 1)]);
   const dispatch = useDispatch();
@@ -22,6 +24,9 @@ export function SearchForm(props: Props) {
   const onSubmit = async (event: any) => {
     event.preventDefault();
     const result = await Query(client, GET_AVAILABLE_ROOMS(dates));
+    if (result.data.getAvailbleRooms?.length > 0) {
+      history.push("/booking");
+    }
     dispatch({ type: SET_ROOMS, rooms: result.data.getAvailbleRooms });
   };
 

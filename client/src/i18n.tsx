@@ -12,7 +12,7 @@ i18n
     {
       lng: "en-US",
       fallbackLng: "en-US",
-      ns: ["common", "navigation", "home"],
+      ns: ["common", "navigation", "home", "booking"],
       defaultNS: "common",
       //debug: !!I18N_DEBUG, // !! for casting to boolean
       interpolation: {
