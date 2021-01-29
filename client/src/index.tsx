@@ -7,26 +7,11 @@ import ReactDOM from "react-dom";
 import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { Provider } from "react-redux";
-import store from "./store";
 import "./i18n";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
-const client = new ApolloClient({
-  uri:
-    process.env.PUBLIC_URL === "development"
-      ? process.env.PUBLIC_URL
-      : "http://localhost:4000/graphql",
-  cache: new InMemoryCache(),
-});
-console.log("process", process.env.NODE_PORT);
 ReactDOM.render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </ApolloProvider>
+    <App data-testid="app" />
   </React.StrictMode>,
   document.getElementById("root")
 );

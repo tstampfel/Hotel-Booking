@@ -22,8 +22,18 @@ export function SearchForm(props: Props) {
   const dispatch = useDispatch();
 
   const onSubmit = async (event: any) => {
+    let result: any = "";
     event.preventDefault();
-    const result = await Query(client, GET_AVAILABLE_ROOMS(dates));
+
+    result = await Query(
+      client,
+      {
+        checkIn: dates[0],
+        checkOut: dates[1],
+      },
+      GET_AVAILABLE_ROOMS
+    );
+
     if (result.data.getAvailbleRooms?.length > 0) {
       history.push("/booking");
     }
@@ -33,22 +43,25 @@ export function SearchForm(props: Props) {
   return (
     <div className="search-from">
       <Container>
-        <Form onSubmit={onSubmit}>
+        <Form onSubmit={onSubmit} data-testid="search-dates-form-submit">
           <>
             <Form.Row>
               <Col md={{ offset: 1 }} lg={{ offset: 1 }}></Col>
               <Form.Group as={Col} xs={12} md={5} lg={5}>
-                <Form.Label className="search-form-submit-lable-filler">
-                  T
+                <Form.Label
+                  htmlFor="search-form-calender-range"
+                  className="search-form-submit-lable-filler"
+                >
+                  Search Dates Calender
                 </Form.Label>
                 <Calendar
-                  id="range"
+                  data-testid="search-form-calender-range-test"
+                  id="search-form-calender-range"
                   value={dates}
                   onChange={(e: any) => setDates(e.value)}
                   selectionMode="range"
                   minDate={new Date()}
                   readOnlyInput
-                  onSelect={(e) => console.log(e.originalEvent.target)}
                   showIcon
                   placeholder="Pick dates"
                 />

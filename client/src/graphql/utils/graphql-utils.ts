@@ -2,10 +2,12 @@ import { ApolloClient, DocumentNode } from "@apollo/client";
 
 export async function Query(
   client: ApolloClient<object>,
+  variables: any,
   documentNode: DocumentNode
 ) {
   return await client.query({
     query: documentNode,
+    variables,
   });
 }
 

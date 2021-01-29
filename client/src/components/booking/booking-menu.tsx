@@ -4,7 +4,7 @@ import { BookingStages } from "./booking-stages";
 type Props = {};
 export function BookingMenu(props: Props) {
   return (
-    <div className="booking-menu">
+    <div className="booking-menu" data-testid="booking-menu">
       <Container>
         <Row className="booking-menu-row">
           <Col>

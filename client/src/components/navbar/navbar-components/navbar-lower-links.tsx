@@ -13,12 +13,10 @@ function NavbarLowerLinks(props: any) {
     <>
       <div className="navbar-lower">
         <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="#home">
-            <Nav.Link href="#home">
-              <Nav.Item to="/" as={NavLink}>
-                <strong>ALPHA</strong>
-              </Nav.Item>
-            </Nav.Link>
+          <Navbar.Brand>
+            <NavLink href="#home" to="/">
+              <strong>ALPHA</strong>
+            </NavLink>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

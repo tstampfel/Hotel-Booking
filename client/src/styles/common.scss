@@ -17,6 +17,8 @@
 .image-card-component-container {
   padding: 1.5em;
   font-family: Roboto, sans-serif;
+  position: relative;
+
   .image-card-component-title {
     text-align: left;
     margin-bottom: 1em;
@@ -31,5 +33,21 @@
   }
   .image-card-button {
     display: flex;
+  }
+  .image-card-price {
+    position: absolute;
+    right: -1%;
+    top: -32%;
+    padding: 10px 15px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: #fff;
+    font-size: 15px;
+  }
+  .image-card-rating {
+    font-size: 10px;
+    text-align: right;
+    margin-top: 5px;
+    color: #ffc12b;
   }
 }

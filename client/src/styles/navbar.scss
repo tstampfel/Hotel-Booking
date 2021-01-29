@@ -26,7 +26,10 @@
 }
 
 .navbar-register {
-  padding-top: 3.1vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
   button {
     color: #3ac4fa;
     background: transparent;
