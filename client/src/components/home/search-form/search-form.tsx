@@ -7,37 +7,31 @@ import { useTranslation } from "react-i18next";
 import { GET_AVAILABLE_ROOMS } from "../../../graphql/queries";
 import { SET_ROOMS } from "../../../store/rooms/roomsActionTypes";
 import { useDispatch } from "react-redux";
-import { Query } from "../../../graphql/utils/graphql-utils";
-import { useApolloClient } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
 import { useHistory } from "react-router-dom";
 
 type Props = {};
 export function SearchForm(props: Props) {
   const currentDay = new Date();
   const { t } = useTranslation();
-  const client = useApolloClient();
   const history = useHistory();
 
   const [dates, setDates] = useState([currentDay, addDays(currentDay, 1)]);
-  const dispatch = useDispatch();
-
-  const onSubmit = async (event: any) => {
-    let result: any = "";
-    event.preventDefault();
-
-    result = await Query(
-      client,
-      {
-        checkIn: dates[0],
-        checkOut: dates[1],
-      },
-      GET_AVAILABLE_ROOMS
-    );
-
-    if (result.data.getAvailbleRooms?.length > 0) {
+  const [loadRooms] = useLazyQuery(GET_AVAILABLE_ROOMS, {
+    variables: {
+      checkIn: dates[0],
+      checkOut: dates[1],
+    },
+    onCompleted: (data) => {
       history.push("/booking");
-    }
-    dispatch({ type: SET_ROOMS, rooms: result.data.getAvailbleRooms });
+      dispatch({ type: SET_ROOMS, rooms: data.getAvailbleRooms });
+    },
+  });
+
+  const dispatch = useDispatch();
+  const onSubmit = async (event: any) => {
+    event.preventDefault();
+    loadRooms();
   };
 
   return (

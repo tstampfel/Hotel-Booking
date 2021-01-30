@@ -22,8 +22,14 @@ export function BookingAvailableRooms(props: Props) {
           </Col>
           {availableRooms.map((room: IRoom, index: number) => {
             return (
-              <Col xs={12} md={6} className="booking-image-col">
+              <Col
+                xs={12}
+                md={6}
+                className="booking-image-col"
+                key={RoomTypeEnum[room.roomType.type] + index + "-Col"}
+              >
                 <ImageCard
+                  key={RoomTypeEnum[room.roomType.type] + index}
                   imageSrc={
                     roomsImages[Math.floor(Math.random() * Math.floor(3))]
                   }

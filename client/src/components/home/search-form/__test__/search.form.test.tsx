@@ -11,7 +11,8 @@ import i18n from "./i18n.mock";
 import { Provider } from "react-redux";
 import store from "../../../../store";
 import App from "../../../../App";
-import { ApolloMockedProvider } from "../../../../test-utils/providers";
+import { MockedProvider } from "@apollo/client/testing";
+import { GET_AVAILABLE_ROOMS } from "../../../../graphql/queries";
 
 const selectedDates = [
   new Date(
@@ -22,49 +23,59 @@ const selectedDates = [
   ),
 ];
 
+const roomMock = {
+  request: {
+    query: GET_AVAILABLE_ROOMS,
+    variables: {
+      checkIn: selectedDates[0],
+      checkOut: selectedDates[1],
+    },
+  },
+
+  data: {
+    getAvailbleRooms: [
+      {
+        id: "138fca24-ebbb-444a-9261-9e7f6301c7cb",
+        size: 75,
+        bathTub: true,
+        bedType: { type: 4 },
+        roomType: { type: 2 },
+      },
+    ],
+  },
+};
+
 describe("Testing search form", () => {
   afterEach(() => {
     cleanup();
   });
-  test("State is changed by picking date from dropdown", async () => {
-    const { getAllByPlaceholderText, getByTestId } = render(
+  test("After searching for dates, availabel rooms are provided", async () => {
+    const { getByTestId } = render(
       <Provider store={store}>
-        <ApolloMockedProvider
-          customResolvers={{
-            Query: () => ({
-              getAvailbleRooms: ($checkIn: Date, $checkOut: Date) => ({
-                bathTub: true,
-                bedType: { __typename: "BedType", type: 3 },
-                id: "29092757-c126-4e51-97d5-33452678cbad",
-                roomType: { __typename: "RoomType", type: 4 },
-                size: 65,
-                __typename: "Room",
-                __proto__: Object,
-              }),
-            }),
+        <MockedProvider
+          mocks={[roomMock]}
+          addTypename={false}
+          defaultOptions={{
+            watchQuery: { fetchPolicy: "no-cache" },
+            query: { fetchPolicy: "no-cache" },
           }}
         >
           <I18nextProvider i18n={i18n}>
             <App />
           </I18nextProvider>
-        </ApolloMockedProvider>
+        </MockedProvider>
       </Provider>
     );
 
-    fireEvent.change(getAllByPlaceholderText("Pick dates")[0], {
-      value: selectedDates,
-    });
+    await waitFor(() =>
+      fireEvent.submit(getByTestId("search-dates-form-submit"), {
+        target: { text1: { value: "Text" } },
+      })
+    );
 
-    // await waitFor(() =>
-    //   fireEvent.submit(getByTestId("search-dates-form-submit"), {
-    //     target: { text1: { value: "Text" } },
-    //   })
-    // );
-    fireEvent.submit(getByTestId("search-dates-form-submit"), {
-      target: { text1: { value: "Text" } },
-    });
-    screen.debug();
-    await screen.findByText(/Couple/i);
-    await screen.findByText(/Family/i);
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    expect(await screen.findByText(/Couple/i)).toBeInTheDocument();
+    expect(await screen.findByText(/Select Room/i)).toBeInTheDocument();
   });
 });
