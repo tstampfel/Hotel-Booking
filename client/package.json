@@ -54,7 +54,7 @@
     "start": "env-cmd -f ./../config/dev.env react-scripts start",
     "build": "react-scripts build",
     "compile": "tsc",
-    "test": "cross-env DEBUG_PRINT_LIMIT=5000 react-scripts test",
+    "test": "cross-env DEBUG_PRINT_LIMIT=1000 react-scripts test",
     "eject": "react-scripts eject",
     "cypress": "node_modules/.bin/cypress open"
   },

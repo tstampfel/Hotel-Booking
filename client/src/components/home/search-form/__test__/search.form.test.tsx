@@ -12,10 +12,12 @@ import i18n from "./i18n.mock";
 import { Provider } from "react-redux";
 import store from "../../../../store";
 import { MockedProvider } from "@apollo/client/testing";
-import { SearchForm } from "../search-form";
 import { MemoryRouter, Route } from "react-router-dom";
 import MockDate from "mockdate";
-import { mocks } from "../search-mocks/search.form.mock";
+
+import Routes from "../../../routes/routes";
+import { mocks } from "../../../../test-utils/test-mocks/search.form.mock";
+import { TestWrapper } from "../../../../test-utils/test.wrapper";
 
 describe("Testing search form", () => {
   beforeAll(() => {
@@ -34,25 +36,17 @@ describe("Testing search form", () => {
   });
   test("After searching for dates, availabel rooms are provided", async () => {
     let testLocation: any;
-    const { getByTestId } = render(
-      <Provider store={store}>
-        <MemoryRouter initialEntries={["/"]}>
-          <I18nextProvider i18n={i18n}>
-            <MockedProvider mocks={mocks} addTypename={false}>
-              <>
-                <SearchForm />
-                <Route
-                  path="*"
-                  render={({ history, location }) => {
-                    testLocation = location;
-                    return null;
-                  }}
-                />
-              </>
-            </MockedProvider>
-          </I18nextProvider>
-        </MemoryRouter>
-      </Provider>
+    const { getByTestId, getByText } = render(
+      <TestWrapper>
+        <Routes />
+        <Route
+          path="*"
+          render={({ history, location }) => {
+            testLocation = location;
+            return null;
+          }}
+        />
+      </TestWrapper>
     );
 
     act(() => {
@@ -65,6 +59,8 @@ describe("Testing search form", () => {
       expect(store.getState().rooms.rooms[0].id).toMatch(
         "138fca24-ebbb-444a-9261-9e7f6301c7cb"
       );
+      expect(getByText("Select Room")).toBeInTheDocument();
+      expect(getByText("Luxury")).toBeInTheDocument();
     });
   });
 });
