@@ -1,22 +1,24 @@
-// @flow
 import React, { useState } from "react";
+import { useLazyQuery } from "@apollo/client";
+import { GET_AVAILABLE_ROOMS } from "../../../graphql/queries";
 import { Button, Col, Container, Form } from "react-bootstrap";
 import { Calendar } from "primereact/calendar";
 import { addDays } from "date-fns";
-import { useTranslation } from "react-i18next";
-import { GET_AVAILABLE_ROOMS } from "../../../graphql/queries";
 import { SET_ROOMS } from "../../../store/rooms/roomsActionTypes";
-import { useDispatch } from "react-redux";
-import { useLazyQuery } from "@apollo/client";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 type Props = {};
 export function SearchForm(props: Props) {
   const currentDay = new Date();
-  const { t } = useTranslation();
   const history = useHistory();
-
-  const [dates, setDates] = useState([currentDay, addDays(currentDay, 1)]);
+  const dispatch = useDispatch();
+  const { t } = useTranslation();
+  const [dates, setDates] = useState([
+    new Date(currentDay),
+    addDays(currentDay, 1),
+  ]);
   const [loadRooms] = useLazyQuery(GET_AVAILABLE_ROOMS, {
     variables: {
       checkIn: dates[0],
@@ -27,8 +29,6 @@ export function SearchForm(props: Props) {
       dispatch({ type: SET_ROOMS, rooms: data.getAvailbleRooms });
     },
   });
-
-  const dispatch = useDispatch();
   const onSubmit = async (event: any) => {
     event.preventDefault();
     loadRooms();
@@ -37,7 +37,7 @@ export function SearchForm(props: Props) {
   return (
     <div className="search-from">
       <Container>
-        <Form onSubmit={onSubmit} data-testid="search-dates-form-submit">
+        <Form onSubmit={onSubmit}>
           <>
             <Form.Row>
               <Col md={{ offset: 1 }} lg={{ offset: 1 }}></Col>
@@ -65,6 +65,7 @@ export function SearchForm(props: Props) {
                   T
                 </Form.Label>
                 <Button
+                  data-testid="search-dates-form-submit-button"
                   id="search-form-submit-button"
                   type="submit"
                   title="Search"

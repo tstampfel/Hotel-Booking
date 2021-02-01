@@ -34,6 +34,7 @@
     "i18next": "^19.8.4",
     "i18next-browser-languagedetector": "^6.0.1",
     "i18next-http-backend": "^1.0.21",
+    "mockdate": "^3.0.2",
     "node-sass": "^4.14.1",
     "primeicons": "^4.1.0",
     "primereact": "^5.0.2",
