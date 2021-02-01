@@ -1,6 +1,6 @@
 # Introduction
 
-Hotel-Booking example with React, Redux, TypeScript, Apollo, TypeGraphl, Nodejs, Postgresql and Redis
+Hotel-Booking is an example app where I demostrate my skill with React, Redux, TypeScript, Apollo, TypeGraphl, Nodejs, Postgresql and Redis. Feel free to fork or clone it.
 
 # Getting Started
 
