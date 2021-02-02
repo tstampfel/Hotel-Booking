@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLazyQuery } from "@apollo/client";
 import { GET_AVAILABLE_ROOMS } from "../../../graphql/queries";
-import { Button, Col, Container, Form } from "react-bootstrap";
+import { Button, Col, Container, Form, Spinner } from "react-bootstrap";
 import { Calendar } from "primereact/calendar";
 import { addDays } from "date-fns";
 import { SET_ROOMS } from "../../../store/rooms/roomsActionTypes";
@@ -19,7 +19,7 @@ export function SearchForm(props: Props) {
     new Date(currentDay),
     addDays(currentDay, 1),
   ]);
-  const [loadRooms] = useLazyQuery(GET_AVAILABLE_ROOMS, {
+  const [loadRooms, { loading, called }] = useLazyQuery(GET_AVAILABLE_ROOMS, {
     variables: {
       checkIn: dates[0],
       checkOut: dates[1],
@@ -69,9 +69,12 @@ export function SearchForm(props: Props) {
                   id="search-form-submit-button"
                   type="submit"
                   title="Search"
-                  disabled={dates[1] === null}
+                  disabled={dates[1] === null || loading || called}
                 >
-                  {t("common:Search")}
+                  {(loading || called) && (
+                    <Spinner animation="border" variant="light" size="sm" />
+                  )}
+                  {!loading && !called && t("common:Search")}
                 </Button>
               </Form.Group>
               <Col md={{ offset: 1 }} lg={{ offset: 1 }}></Col>

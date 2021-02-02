@@ -1,6 +1,7 @@
 import { BookingBanner } from "../booking-banner";
 import React from "react";
 import { render, screen } from "@testing-library/react";
+import { TestWrapper } from "../../../test-utils/test.wrapper";
 
 describe("Booking banner unit tests", () => {
   test("Snapshot", () => {
@@ -9,6 +10,10 @@ describe("Booking banner unit tests", () => {
   });
   screen.debug();
   test("Renders with out crashing", () => {
-    render(<BookingBanner />);
+    render(
+      <TestWrapper>
+        <BookingBanner />
+      </TestWrapper>
+    );
   });
 });

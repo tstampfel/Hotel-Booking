@@ -14,7 +14,7 @@ exports[`Booking banner unit tests Snapshot 1`] = `
         <div
           class="col"
         >
-          booking:bookingSystem
+          bookingSystem
         </div>
       </div>
       <div
@@ -29,7 +29,7 @@ exports[`Booking banner unit tests Snapshot 1`] = `
             <span
               id="booking-banner-home"
             >
-              common:Home
+              Home
             </span>
             <svg
               aria-hidden="true"
@@ -50,7 +50,7 @@ exports[`Booking banner unit tests Snapshot 1`] = `
               id="booking-banner-booking"
             >
                
-              common:Booking
+              Booking
             </span>
           </div>
         </div>

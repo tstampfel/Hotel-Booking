@@ -4,8 +4,9 @@ import * as React from "react";
 import { I18nextProvider } from "react-i18next";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
-import i18n from "../components/home/search-form/__test__/i18n.mock";
+
 import store from "../store";
+import i18n from "./i18n.mock";
 import { mocks } from "./test-mocks/search.form.mock";
 type Props = {
   children: any;
