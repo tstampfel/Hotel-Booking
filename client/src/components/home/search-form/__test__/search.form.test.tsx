@@ -8,7 +8,7 @@ import {
 } from "@testing-library/react";
 import store from "../../../../store";
 import MockDate from "mockdate";
-import Routes from "../../../routes/routes";
+import RegularRoutes from "../../../routes/routes";
 import { TestWrapper } from "../../../../test-utils/test.wrapper";
 import { Route } from "react-router-dom";
 
@@ -31,7 +31,7 @@ describe("Testing search form", () => {
     let testLocation: any;
     const { getByTestId, getByText } = render(
       <TestWrapper>
-        <Routes />
+        <RegularRoutes />
         <Route
           path="*"
           render={({ history, location }) => {

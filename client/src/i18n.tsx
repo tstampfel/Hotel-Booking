@@ -2,8 +2,9 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import HttpApi from "i18next-http-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
+import path from "path";
 //import { VERSION, I18N_DEBUG } from '../../Utils/config';
-
+console.log("")
 i18n
   .use(HttpApi)
   .use(LanguageDetector)
@@ -19,9 +20,12 @@ i18n
         escapeValue: false, // not needed for react!!
       },
       backend: {
-        loadPath: "locales/{{lng}}/{{ns}}.json",
-        //queryStringParams: { v: VERSION }
+        loadPath:
+          process.env.NODE_ENV !== "production"
+            ? `./locales/{{lng}}/{{ns}}.json`
+            : path.join(__dirname, "locales/{{lng}}/{{ns}}.json"),
       },
+
       cache: {
         enabled: true,
       },

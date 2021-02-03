@@ -1,13 +1,13 @@
 import React from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
-import About from "../about";
-import Home from "../home";
 import NavbarComponent from "../navbar/navbar-component";
-import Rooms from "../rooms";
 import GuardedRoute from "./guarded-route";
 import { AnimatePresence } from "framer-motion";
 import { Footer } from "../footer/footer";
 import { Booking } from "../booking/booking";
+import About from "../About";
+import Rooms from "../Rooms";
+import Home from "../Home";
 
 function Routes(props: any) {
   const location = useLocation();
