@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Booking components test <BookingReview /> matches snapshot 1`] = `
+<div>
+  <div
+    class="booking-review"
+    style="opacity: 0;"
+  >
+    Review
+  </div>
+</div>
+`;

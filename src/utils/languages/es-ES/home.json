@@ -1,0 +1,32 @@
+{
+	"banner": {
+		"bookNow": "RESERVAR AHORA",
+		"learnMore": "APRENDE MÁS",
+		"messageOne": {
+			"description": "Lorem ipsum dolor sit amet, conconsectetuer adipiscing elit Lorem ipsum dolor sit amet, conconsectetuer",
+			"titleOne": "BIENVENIDO A",
+			"titleTwo": " HOTEL ALPHA"
+		},
+		"messageThree": {
+			"description": "Lorem ipsum dolor sit amet, conconsectetuer adipiscing elit Lorem ipsum dolor sit amet, conconsectetuer",
+			"titleOne": "MEJOR LUGAR",
+			"titleTwo": " PARA ENCONTRAR HABITACIÓN"
+		},
+		"messageTwo": {
+			"description": "Lorem ipsum dolor sit amet, conconsectetuer adipiscing elit Lorem ipsum dolor sit amet, conconsectetuer",
+			"titleOne": "MEJOR LUGAR",
+			"titleTwo": " RELAJARSE"
+		}
+	},
+	"search": {
+		"Adult": "Adulto",
+		"Children": "Niños",
+		"Room": "Habitación",
+		"banner": {
+			"lower": " TUS ",
+			"lowerSecond": " HABITACIONES",
+			"upper": "BUSCA"
+		},
+		"checkIn/Out": "Llegada / Salida"
+	}
+}

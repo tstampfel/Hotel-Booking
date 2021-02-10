@@ -1,0 +1,53 @@
+@import "./collors.scss";
+
+.image-card-component {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 100%;
+  margin-bottom: 2em;
+  .image-card-component-image {
+    width: 100%;
+  }
+}
+
+.image-card-component:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.image-card-component-container {
+  padding: 1.5em;
+  font-family: Roboto, sans-serif;
+  position: relative;
+
+  .image-card-component-title {
+    text-align: left;
+    margin-bottom: 1em;
+    color: $secondaryColor;
+    font-size: large;
+  }
+  .image-card-component-description {
+    text-align: left;
+    margin-bottom: 1em;
+    font-size: medium;
+    font-weight: 200;
+  }
+  .image-card-button {
+    display: flex;
+  }
+  .image-card-price {
+    position: absolute;
+    right: -1%;
+    top: -32%;
+    padding: 10px 15px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: #fff;
+    font-size: 15px;
+  }
+  .image-card-rating {
+    font-size: 10px;
+    text-align: right;
+    margin-top: 5px;
+    color: #ffc12b;
+  }
+}
